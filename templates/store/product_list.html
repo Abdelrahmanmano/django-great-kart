@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="row">
+{% for product in products %}
+    <!-- <div class="col-md-3">
+		<div class="card card-product-grid">
+			<a href="{% url 'product_detail' product.id %}" class="img-wrap">
+                <img src="{{ product.image.url }}" alt="{{ product.product_name }}" class="img-fluid">
+            </a> 
+			<figcaption class="info-wrap">
+				<a href="{% url 'product_detail' product.id %}" class="title">{{ product.product_name }}</a>
+				<div class="price mt-1">${{ product.price }}</div>
+			</figcaption>
+		</div>
+	</div> -->
+
+
+	<div class="col-md-3">
+		<div class="card card-product-grid">
+			<a href="{{ product.get_url }}" class="img-wrap">
+                <img src="{{ product.image.url }}" alt="{{ product.product_name }}" class="img-fluid">
+            </a> 
+			<figcaption class="info-wrap">
+				<a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
+				<div class="price mt-1">${{ product.price }}</div>
+			</figcaption>
+		</div>
+	</div>
+{% endfor %}
+</div>
