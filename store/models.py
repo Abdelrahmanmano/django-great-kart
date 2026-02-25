@@ -13,6 +13,8 @@ class Product(models.Model):
     modified_date = models.DateTimeField(auto_now=True, verbose_name="Modified Date")
     image = models.ImageField(upload_to='photos/products/%y/%m/%d', verbose_name="Product Image", blank=True)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Category")
+    brand = models.CharField(max_length=100, verbose_name="Brand", blank=True)
+    version = models.CharField(max_length=100, verbose_name="Version", blank=True)
 
     def __str__(self):
         return self.product_name
